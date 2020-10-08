@@ -2,6 +2,7 @@ require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
   
+# je récupère l'url de chaque député
 def get_depute_url
   page = Nokogiri::HTML(URI.open('http://www2.assemblee-nationale.fr/deputes/liste/alphabetique'))
   gg = page.xpath('//*[@id="deputes-list"]/div/ul')
@@ -10,6 +11,7 @@ def get_depute_url
   link
 end
 
+# je génère les prénoms et noms et fais une boucle
 def name (get_depute_url)
   deputes = get_depute_url.map do |x|
     page_1 = Nokogiri::HTML(URI.open(x))
@@ -19,6 +21,7 @@ def name (get_depute_url)
   end
 end
 
+# je génère les emails et fais une boucle
 def mail (get_depute_url)
   mail = get_depute_url.map do |x|
     page_2 = Nokogiri::HTML(URI.open(x))
@@ -28,6 +31,7 @@ def mail (get_depute_url)
   end
 end
 
+# je réunis dans un array
 def array_final (name, mail)
   i = 0
   array = []
