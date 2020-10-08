@@ -15,9 +15,9 @@ end
 def name (get_depute_url)
   deputes = get_depute_url.map do |x|
     page_1 = Nokogiri::HTML(URI.open(x))
-    imp_1 = page_1.xpath('//*[@id="haut-contenu-page"]/article/div[2]/h1').text
-    puts imp_1
-    imp_1
+    list_dep = page_1.xpath('//*[@id="haut-contenu-page"]/article/div[2]/h1').text
+    puts list_dep
+    list_dep
   end
 end
 
@@ -25,9 +25,9 @@ end
 def mail (get_depute_url)
   mail = get_depute_url.map do |x|
     page_2 = Nokogiri::HTML(URI.open(x))
-    imp_2 = page_2.xpath('//*[@id="haut-contenu-page"]/article/div[3]/div/dl/dd[4]/ul/li[2]/a').text
-    puts imp_2
-    imp_2
+    list_mail = page_2.xpath('//*[@id="haut-contenu-page"]/article/div[3]/div/dl/dd[4]/ul/li[2]/a').text
+    puts list_mail
+    list_mail
   end
 end
 
